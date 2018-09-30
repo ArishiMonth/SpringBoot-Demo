@@ -16,13 +16,11 @@
 
 package io.arish.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 
 import io.arish.common.utils.PageResult;
 import io.arish.entity.SysUserEntity;
 
-import java.util.List;
 import java.util.Map;
 
 

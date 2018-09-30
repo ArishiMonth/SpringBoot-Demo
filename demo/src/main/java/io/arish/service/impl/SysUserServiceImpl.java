@@ -5,9 +5,6 @@ package io.arish.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-
 import io.arish.common.utils.PageResult;
 import io.arish.dao.SysUserDao;
 import io.arish.entity.SysUserEntity;

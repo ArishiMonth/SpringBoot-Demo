@@ -1,12 +1,9 @@
 package io.arish;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,15 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.baomidou.mybatisplus.plugins.Page;
-
+import io.arish.common.ExcelHelper;
 import io.arish.common.utils.PageResult;
 import io.arish.entity.SysUserEntity;
 import io.arish.service.DemoService;
-import io.arish.service.SysUserService;
 
 
 
@@ -60,5 +54,19 @@ public class DemoApplicationTests {
 //	      List<?> resultList = jdbcTemplate.queryForList("select * from sys_user");
 //	      System.out.println("===>>>>>>>>>>>" +resultList.toString());
 //	}
-
+    @Test
+    public void excelExportTest(){
+    	String path="E:\\1226\\";
+    	String fileName="测试demo";
+    	Map<String, String> title=new LinkedHashMap<String, String>(); 
+    	title.put("userId", "用户id");
+    	title.put("username", "用户名称");
+       	title.put("password", "密码");   	
+    	title.put("mobile", "电话");   	    	
+    	List<SysUserEntity> data=new  ArrayList<>();
+    	//Queue title1=new Q
+    	data.add(demoService.queryUser(1L));
+    	String savePath=ExcelHelper.ExportExcel(path,fileName,title,data);
+    	System.out.println("===>>>>>>>>>>>" +savePath);
+    }
 }

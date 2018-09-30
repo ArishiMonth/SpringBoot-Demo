@@ -42,6 +42,15 @@ import java.util.List;
 public class SysUserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	public SysUserEntity(){}
+	
+	public SysUserEntity(Long userId,String username,String password,String mobile){
+		this.userId=userId;
+		this.username=username;
+		this.password=password;
+		this.mobile=mobile;
+	}
+	
 	/**
 	 * 用户ID
 	 */
